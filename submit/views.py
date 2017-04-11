@@ -31,7 +31,7 @@ def upload(request):
     pkg = BeastPackage(name=root.attrib['name'],
             version=root.attrib['version'],
             description=request.POST['description'],
-            url=fs.url(filename),
+            url="http://localhost:8000/" + fs.url(filename),
             project_url=request.POST['project_url'],
             email=request.POST['email'],
             doi=request.POST['doi'])
