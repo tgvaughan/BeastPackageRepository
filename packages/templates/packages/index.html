@@ -1,0 +1,50 @@
+<html>
+<style>
+table {
+    border: solid 1px black;
+    border-collapse: collapse;
+    width: 50%;
+        margin-left:25%;
+}
+
+tr, td {
+    border-left: 1px solid black;
+}
+
+td {
+    height: 3em;
+        text-align: center;
+}
+
+tr:first-child {
+    color: white;
+    background-color: black;
+}
+
+tr:nth-child(even) {
+    background-color: lightgrey;
+}
+
+</style>
+    <body>
+        <table id="packageTable">
+            <tr>
+                <th>Package Name</th>
+                <th>Citation</th>
+                <th>Project URL</th>
+                <th>Description</th>
+            </tr>
+
+                {% for package in beast_packages %}
+                <tr>
+                    <td>{{ package.name }}</td>
+                    <td><a href="http://dx.doi.org/{{package.doi}}">{{ package.doi }}</a></td>
+                    <td><a href="{{ package.project_url }}">{{package.project_url}}</a></td>
+                    <td>{{ package.description }}</td>
+                </tr>
+
+                {% endfor %}
+            </tr>
+        </table>
+    </body>
+</html>

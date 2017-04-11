@@ -1,0 +1,13 @@
+<form action="{% url 'submit:upload' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    Your name: <input type="text" name="name"><br>
+    Your email: <input type="text" name="email"><br>
+    Package archive file: <input type="file" name="package_file"><br>
+    Package description:<br>
+    <textarea name="description" rows="4", cols="60"></textarea><br>
+    Project URL: <input type="text" name="project_url"><br>
+    Citation (DOI): <input type="text" name="doi"><br>
+
+    <input type="submit" value="Submit"/>
+</form>
